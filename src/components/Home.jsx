@@ -42,7 +42,12 @@ const Home = () => {
               className={sty_home.upperImg}
               loading="lazy"
               decoding="async"
-              style={{ width: "618px", height: "384px", objectFit: "cover" }}
+              style={{ 
+                width: "100%", 
+                maxWidth: "618px", 
+                height: "auto", 
+                objectFit: "cover" 
+              }}
             />
           </div>
 

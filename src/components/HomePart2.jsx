@@ -54,6 +54,24 @@ const HomePart2 = () => {
     return () => clearInterval(interval);
   }, [images.length, isAutoPlaying]);
 
+  // Optimize mobile performance with debounced resize handler
+  useEffect(() => {
+    let timeoutId;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        // Force re-render on resize for responsive images
+        window.dispatchEvent(new Event('resize'));
+      }, 150);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   // Handle image navigation with arrows
   const handleImageChange = useCallback((direction) => {
     let nextIndex;
@@ -110,7 +128,12 @@ const HomePart2 = () => {
               <div className={styles.imageArea}>
                 <div className={styles.imagePart1}>
                   <div >
-<img src={circle1} alt="Hair & Skin Treatments"  className={styles.CircleText} />
+<img src={circle1} alt="Hair & Skin Treatments"  className={styles.CircleText} style={{
+                    width: "128px",
+                    height: "115px", // Adjusted to match 1.10 ratio (318x288)
+                    maxWidth: "100%",
+                    height: "auto", // Better for mobile responsive
+                  }} loading="lazy" />
                   </div>
                   <div className={styles.img1}>
                     <ImageCard
@@ -274,7 +297,7 @@ const HomePart2 = () => {
                 }}
               >
                 <h4>{currentReview.name}</h4>
-                <p>{currentReview.rating}</p>
+                {/* <p>{currentReview.rating}</p> */}
               </div>
 
               <div className={styles.arrows}>
@@ -340,15 +363,19 @@ const HomePart2 = () => {
                   src={images[currentImageIndex]}
                   alt={`Testimonial ${currentImageIndex + 1}`}
                   style={{
-                    width: "250px",
-                    height: "250px",
+                    width: "100%",
+                    maxWidth: "250px",
+                    height: "auto", // Better for mobile responsive
+                    aspectRatio: "0.96", // Maintain proper ratio
                     borderRadius: "10px",
                     transition: "opacity 0.7s ease-in-out",
+                    objectFit: "cover",
                   }}
+                  loading="lazy"
                 />
-                <div style={{ marginTop: "15px", fontSize: "14px", color: "#666" }}>
+                {/* <div style={{ marginTop: "15px", fontSize: "14px", color: "#666" }}>
                   {currentImageIndex + 1} / {images.length}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
