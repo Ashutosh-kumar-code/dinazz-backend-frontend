@@ -17,7 +17,7 @@ const App = () => {
   return (
     <div>
 
-      <BrowserRouter basename='/clinic'>
+      <BrowserRouter>
         <Nav />
 
         <Routes>
