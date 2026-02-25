@@ -12,6 +12,7 @@ import React, { useState } from "react";
 
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("")
 
 
     const handleChange = (e) => {
@@ -71,9 +72,11 @@ const handleSubmit = async (e) => {
     clearTimeout(timeoutId);
     const result = await response.json();
     if (response.ok) {
-      alert("✅ Booking submitted successfully!");
+      setSuccessMessage("✅ Booking submitted successfully!");
       setFormData({ fullName: "", phone: "", email: "" });
-      onClose();
+      setTimeout(() => {
+        onClose();
+      }, 2000); // Close after 2 seconds
     } else {
       alert('❌ Error: ' + (result.error || 'Not submitted. Please try again.'));
     }
@@ -191,6 +194,22 @@ const handleSubmit = async (e) => {
                 >
                   {loading ? "Submitting..." : "Book A Call"}
                 </button>
+
+                {successMessage && (
+                  <p style={{ 
+                    color: "#DD9233", 
+                    fontSize: "16px", 
+                    fontWeight: "bold",
+                    marginTop: "15px",
+                    textAlign: "center",
+                    padding: "8px",
+                    backgroundColor: "#f8f9fa",
+                    borderRadius: "8px",
+                    border: "2px solid #DD9233"
+                  }}>
+                    {successMessage} 
+                  </p>
+                )}
 
               </form>
             </div>

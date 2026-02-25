@@ -542,6 +542,7 @@
   flex-direction: column;
   gap: 12px;
   z-index: 9999;
+  align-items: center;
   pointer-events: auto;
 }
 
@@ -559,40 +560,48 @@
 }
 
 .whatsappButton {
-  /* width: auto; */
-  /* min-width: 120px; */
-  /* height: 45px; */
-  /* background-color: #fff; */
-  /* border-radius: 25px; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none; */
-  /* transition: all 0.3s ease; */
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
-  /* padding: 0 20px; */
-  /* font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 14px; */
   padding-left: 0px;
+  animation: whatsappVibrateRing 2s ease-in-out infinite;
+}
+
+@keyframes whatsappVibrateRing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.3) translateX(0px);
+  }
+  12% {
+    transform: scale(1.3) translateX(-2px);
+  }
+  14% {
+    transform: scale(1.3) translateX(2px);
+  }
+  16% {
+    transform: scale(1.3) translateX(-2px);
+  }
+  18% {
+    transform: scale(1.3) translateX(2px);
+  }
+  20% {
+    transform: scale(1.3) translateX(0px);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
 
 .whatsappButton:hover {
-  /* background-color: #128C7E; */
-  transform: scale(1.05);
-}
-.whatsappButton svg {
-  width: 42px;
-  height: 42px;
-  /* margin-right: 8px; */
+  transform: scale(1.3);
+  animation: none;
 }
 
+
 .scrollTopButton {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   background-color: white;
-  border: 2px solid #ddd;
+  border: 1px solid #ececec;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -601,33 +610,35 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* animation: arrowUpDown 2s ease-in-out infinite; */
+}
+
+@keyframes arrowUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .scrollTopButton:hover {
   background-color: #f0f0f0;
-  /* border-color: #999; */
   transform: scale(1.1);
+  animation: none;
 }
 
 .scrollTopButton svg {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 10px;
+   animation: arrowUpDown 2s ease-in-out infinite;
 }
-
-
 
 @media (max-width: 768px) {
   .floatingButtons {
     bottom: 15px;
     right: 15px;
     gap: 8px;
-  }
-  
-  .whatsappButton {
-    /* min-width: 100px;
-    height: 40px;
-    font-size: 12px;
-    padding: 0 15px; */
   }
   
   .scrollTopButton {
@@ -637,8 +648,8 @@
   
   .whatsappButton svg,
   .scrollTopButton svg {
-    width: 18px;
-    height: 18px;
+    width: 12px;
+    height: 10px;
   }
   
   .phase1, .phase2 {

@@ -36,6 +36,7 @@ const StorySection = () => {
           </p>
         </div>  
  <div className={styles.buttonWrapper1} >
+  <a href="tel:+917338422548" style={{ textDecoration: 'none' }}> 
                 <AnimatedButton
                 buttonText = "Call The Clinic" 
                   bgColor="transparent"
@@ -44,6 +45,7 @@ const StorySection = () => {
                   hoverText="black"
                     showPopup={false} 
                 />
+                    </a>
                 </div>
 
         </div>

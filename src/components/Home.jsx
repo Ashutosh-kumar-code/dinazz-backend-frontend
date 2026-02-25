@@ -3,9 +3,8 @@ import sty_home from "./Home.module.css";
 import AnimatedButton from "./AnimatedButton";
 // import heroImg from "../assets/hero.png";
 import girlImg from "../assets/doc-Photoroom 1.png";
-// import CallButton from "./CallButton";
-// import Nav from "./Nav";
 import coverBack from "../assets/coverBack.png"
+import whatsapp_icon from "../assets/whatsapp.svg"
 import HomePart2 from "./HomePart2";
 
 const Home = () => {
@@ -170,9 +169,7 @@ const Home = () => {
                 className={sty_home.whatsappButton}
                 aria-label="Contact us on WhatsApp"
               >
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none">
-  <path d="M16.001 2.667c-7.36 0-13.334 5.973-13.334 13.333 0 2.352.613 4.648 1.777 6.678L2.667 29.333l6.88-1.755a13.25 13.25 0 006.454 1.689h.006c7.36 0 13.333-5.973 13.333-13.333 0-7.36-5.973-13.333-13.339-13.333zm0 24c-2.09 0-4.142-.56-5.944-1.621l-.426-.253-4.082 1.041 1.09-3.98-.278-.459A10.646 10.646 0 015.334 16c0-5.88 4.786-10.667 10.667-10.667 5.88 0 10.666 4.787 10.666 10.667 0 5.88-4.786 10.667-10.666 10.667zm5.853-8.02c-.32-.16-1.893-.934-2.186-1.04-.293-.107-.506-.16-.72.16-.213.32-.826 1.04-1.013 1.254-.187.213-.373.24-.693.08-.32-.16-1.35-.497-2.572-1.584-.95-.846-1.592-1.893-1.778-2.213-.187-.32-.02-.493.14-.653.144-.144.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.72-1.733-.987-2.373-.26-.626-.526-.54-.72-.547l-.613-.013c-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.666 0 1.573 1.146 3.093 1.306 3.306.16.213 2.256 3.44 5.467 4.823.764.33 1.36.527 1.826.674.767.244 1.466.21 2.02.127.616-.092 1.893-.773 2.16-1.52.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z" fill="#25D366"/>
-</svg> 
+<img src={whatsapp_icon} alt="whatsapp-icon" />
               </a>
       
               {/* Scroll to Top Button */}
@@ -181,8 +178,8 @@ const Home = () => {
                   className={sty_home.scrollTopButton}
                   aria-label="Scroll to top"
                 >
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M12 19V5M12 5L6 11M12 5L18 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.29289 0.292893C6.68342 -0.0976311 7.31658 -0.0976311 7.70711 0.292893L13.7071 6.29289C14.0976 6.68342 14.0976 7.31658 13.7071 7.70711C13.3166 8.09763 12.6834 8.09763 12.2929 7.70711L7 2.41421L1.70711 7.70711C1.31658 8.09763 0.683417 8.09763 0.292893 7.70711C-0.0976311 7.31658 -0.0976311 6.68342 0.292893 6.29289L6.29289 0.292893Z" fill="#1B2021"/>
 </svg>
 
                 </button>

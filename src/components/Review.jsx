@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Review.module.css";
 import image from "../assets/Ellipse 13.webp";
-import img1 from "../assets/Property 1=image 12.png";
-import img2 from "../assets/Property 1=image 13.png";
-import img3 from "../assets/Property 1=image 14.png";
+import img1 from "../assets/testimonail1.jpeg";
+import img2 from "../assets/testimonail2.jpeg";
+import img3 from "../assets/testimonail3.jpeg";
 import img4 from "../assets/Property 1=rest.png";
 
 const reviews = [
   {
     id: 1,
-    name: "Sandeep I",
+    name: "Sneha UN",
     rating: "4.9 ⭐ | 26/12/2025",
     avatar: image,
     resultImg: img1,
@@ -17,7 +17,7 @@ const reviews = [
   },
   {
     id: 2,
-    name: "Priya Sharma",
+    name: "Harish M",
     rating: "5.0 ⭐ | 15/01/2026",
     avatar: image,
     resultImg: img2,
@@ -25,7 +25,7 @@ const reviews = [
   },
   {
     id: 3,
-    name: "Rahul Mehta",
+    name: "Lubna khattam",
     rating: "4.8 ⭐ | 02/02/2026",
     avatar: image,
     resultImg: img3,
@@ -33,7 +33,7 @@ const reviews = [
   },
   {
     id: 4,
-    name: "Aisha Khan",
+    name: "Sneha UN",
     rating: "5.0 ⭐ | 10/02/2026",
     avatar: image,
     resultImg: img4,
@@ -73,7 +73,7 @@ const Review = ({ onReviewChange }) => {
                 <img src={item.avatar} alt={item.name} />
                 <div className={styles.reviewItemText}>
                   <h4>{item.name}</h4>
-                  <p>{item.rating}</p>
+                  {/* <p>{item.rating}</p> */}
                 </div>
               </div>
             </div>

@@ -32,18 +32,38 @@ import phase31 from "../assets/phase31.png";
 import phase32 from "../assets/phase32.png";
 import washimg from "../assets/wash.png";
 import Form from "./Form";
-import circle1 from "../assets/circle1.webp"
+import circle1 from "../assets/circle1.webp";
+import testimonail1 from "../assets/testimonail1.jpeg";
+import testimonail2 from "../assets/testimonail2.jpeg";
+import testimonail3 from "../assets/testimonail3.jpeg";
+
 const HomePart2 = () => {
-    const images = [phase31, phase32];
+    const images = [testimonail1, testimonail2, testimonail3];
   const [currentReview, setCurrentReview] = useState(reviews[0]);
   const [fade, setFade] = useState(true);
-  const [currentImage, setCurrentImage] = useState(images[0]);
-useEffect(() => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto-cycle through all 3 images
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev === images[0] ? images[1] : images[0]));
-    }, 3000);
+      setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 3000); // Changed from 3000ms to 1500ms (faster)
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length, isAutoPlaying]);
+
+  // Handle image navigation with arrows
+  const handleImageChange = useCallback((direction) => {
+    let nextIndex;
+    if (direction === 'prev') {
+      nextIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+    } else {
+      nextIndex = currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
+    }
+    setCurrentImageIndex(nextIndex);
+  }, [currentImageIndex, images.length]);
 
   const handleReviewChange = useCallback((direction) => {
     const currentIndex = reviews.findIndex(review => review.id === currentReview.id);
@@ -55,12 +75,26 @@ useEffect(() => {
       nextIndex = currentIndex === reviews.length - 1 ? 0 : currentIndex + 1;
     }
     
+    // Also change the image when review changes
+    const imageNextIndex = direction === 'prev' 
+      ? (currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1)
+      : (currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1);
+    
+    // Stop auto-play when user manually navigates
+    setIsAutoPlaying(false);
+    
     setFade(false);
     setTimeout(() => {
       setCurrentReview(reviews[nextIndex]);
+      setCurrentImageIndex(imageNextIndex);
       setFade(true);
-    }, 300);
-  }, [currentReview]);
+      
+      // Restart auto-play after 5 seconds
+      setTimeout(() => {
+        setIsAutoPlaying(true);
+      }, 5000);
+    }, 3000);
+  }, [currentReview, currentImageIndex, reviews, images]);
 
   return (
     <div className={styles.HomePart2_main}>
@@ -303,8 +337,8 @@ useEffect(() => {
 
                     <div style={{ textAlign: "center", padding: "50px" }}>
                 <img
-                  src={currentImage}
-                  alt="Current"
+                  src={images[currentImageIndex]}
+                  alt={`Testimonial ${currentImageIndex + 1}`}
                   style={{
                     width: "250px",
                     height: "250px",
@@ -312,6 +346,9 @@ useEffect(() => {
                     transition: "opacity 0.7s ease-in-out",
                   }}
                 />
+                <div style={{ marginTop: "15px", fontSize: "14px", color: "#666" }}>
+                  {currentImageIndex + 1} / {images.length}
+                </div>
               </div>
             </div>
           </div>
@@ -370,7 +407,7 @@ useEffect(() => {
               title1="Aesthetic"
               title2="Dermatology"
               listItems={[
-                // "Botox & fillers (medically guided)",
+                "Anti-Wrinkle Treatments & Dermal Fillers (Medically Guided Consultation)",
                 "Non-surgical facial enhancements",
                 "Skin tightening & rejuvenation",
               ]}
