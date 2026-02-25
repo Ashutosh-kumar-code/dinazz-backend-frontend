@@ -112,12 +112,12 @@ const Home = () => {
                 Dr. Nazia Iqbal is nationally and internationally recognized for
                 excellence in dermatology and aesthetic medicine, with proven
                 expertise in:
-                <ul>
-                  <li>Medical skin treatments</li>
-                  <li>Hair loss diagnosis and restoration</li>
-                  <li>Ethical aesthetic dermatology</li>
-                </ul>
               </p>
+              <ul>
+                <li>Medical skin treatments</li>
+                <li>Hair loss diagnosis and restoration</li>
+                <li>Ethical aesthetic dermatology</li>
+              </ul>
             </div>
 
             <div className={sty_home.sec2Andsec3}>

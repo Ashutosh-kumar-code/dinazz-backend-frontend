@@ -173,8 +173,8 @@ const HomePart2 = () => {
             </div>
 
             <div className={styles.phase2text}>
-              <h3>KEY DIFFERENCES</h3>
-              <h1>What Sets Us Apart</h1>
+              <h2>KEY DIFFERENCES</h2>
+              <h3>What Sets Us Apart</h3>
             </div>
           </div>
 
