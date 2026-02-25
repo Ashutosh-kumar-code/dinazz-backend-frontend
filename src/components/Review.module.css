@@ -1,0 +1,129 @@
+/* Review.module.css */
+
+.circleWrapper {
+  position: relative;
+  width: 250px;
+  height: 230px;
+  font-family: "Instrument Sans", sans-serif;
+}
+
+.reviewItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reviewItem p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  color: gray;
+}
+
+.reviewItemText {
+  color: #161616;
+  min-width: 130px;
+  padding: 3px;
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #333;
+  position: relative;
+}
+
+.profile {
+  position: absolute;
+  width: 130px;
+  height: 80px;
+  transition: all 0.7s ease-in-out;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Positions based on offset from current (0 = current, 1 = next, etc.) */
+.offset0 {
+  top: 0%;
+  left: 110%;
+  transform: translateX(-70%);
+  opacity: 1;
+}
+.offset1 {
+  left: 95%;
+  top: 60%;
+  transform: translateY(-70%);
+  opacity: 1;
+}
+.offset2 {
+  top: 75%;
+  left: 105%;
+  transform: translateX(-50%);
+  opacity: 0.6;
+}
+.offset3 {
+  left: 70%;
+  top: 120%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+@media screen and (max-width: 786px) {
+  .reviewItemText {
+    display: none !important;
+  }
+
+  .reviewItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .circle {
+    width: 230px !important;
+    height: 230px !important;
+  }
+
+  .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .offset0 {
+    top: 5%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  .offset1 {
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  .offset2 {
+    top: 92%;
+    left: 92%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+  }
+  .offset3 {
+    top: 110%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+}

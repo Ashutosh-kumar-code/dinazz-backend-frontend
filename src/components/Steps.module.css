@@ -1,0 +1,126 @@
+.container {
+  /* padding: 40px; */
+  padding-top: 20px;
+  max-width: 400px;
+  /* background-color: #fff; */
+  cursor: pointer;
+  user-select: none;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  min-height: 80px;
+}
+
+.circle {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 25px;
+  background-color: #fff;
+  z-index: 3;
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+/* Line Styling */
+.line_container {
+  position: absolute;
+  left: 22px;
+  top: 44px;
+  width: 2px;
+  height: calc(100% - 44px);
+  z-index: 1;
+}
+
+.line_bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e3e3e3; /* Static grey line */
+}
+
+.line_active {
+  position: absolute;
+  width: 100%;
+  height: 0; /* Starts at zero */
+  background-color: #00A9A5;
+  transition: height 0.6s linear;
+}
+
+.content h4 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+.content p {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+
+/* --- ANIMATION TRIGGER (SHARP TRI-COLOR WAVE) --- */
+
+.step.animate .circle {
+  background-color: #00A9A5;
+  border-color: #00A9A5;
+  color: #fff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: calc(var(--i) * 0.4s); 
+}
+
+.step.animate .content h4 {
+  transition: color 0.3s ease;
+  transition-delay: calc(var(--i) * 0.4s);
+  color: #00A9A5;
+}
+
+.step.animate .line_active {
+  height: 100%;
+  
+  /* Sharp 10px Black and 10px White tip with Blue tail */
+  /* Gradient starts from the bottom tip of the moving line */
+  background: linear-gradient(
+    to bottom, 
+    #00A9A5 calc(100% - 20px), 
+    /* white calc(100% - 20px), 
+    white calc(100% - 10px), 
+    black calc(100% - 10px) */
+  );
+
+  /* Animation speed fast aur smooth flow */
+  transition: height 0.5s cubic-bezier(0.5, 0, 0.3, 1);
+  transition-delay: calc((var(--i) * 0.4s) + 0.1s);
+  
+  /* Curvy tip for liquid feel */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  
+  /* Background size ko bada rakha hai taaki gradient stretch na ho */
+  background-attachment: local;
+}
+
+/* Optional: Circle bounce effect for extra polish */
+.step.animate .circle {
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: calc(var(--i) * 0.4s);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}

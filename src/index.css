@@ -1,0 +1,64 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+@media screen and (min-width: 250px) and (max-width: 786px) {
+  :root {
+    --font-size-subheading: 12px;
+    --line-height-subheading: 145%;  
+    --letter-spacing-subheading: 16%;
+    --font-size-heading:32px;
+    --line-height-heading: auto;  
+    --letter-spacing-heading: 0% ;
+    --font-size-para:14px;
+    --line-height-para: 20px;  
+    --letter-spacing-para: 0% ;
+      --circle-text:10.93px;
+    --circle-line-height:15.6px;
+    --card-width:320px;
+    --card-height:424px;
+        --card-heading:18px;
+      --card-heading-line:32px;
+  }
+}
+
+@media screen and (min-width: 786px) and (max-width: 1024px) {
+  :root {
+    --font-size-subheading: 12px;
+    --line-height-subheading: 145%;
+    --letter-spacing-subheading: 16%;
+     --font-size-heading:40px;
+    --line-height-heading: auto;  
+    --letter-spacing-heading: 0% ;
+       --font-size-para:14px;
+    --line-height-para: 24px;  
+    --letter-spacing-para: 0% ;
+      --circle-text:14px;
+    --circle-line-height:20px;
+      --card-width:318px;
+      --card-height:422px;
+       --card-heading:18px;
+      --card-heading-line:32px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --font-size-subheading: 16px;
+    --line-height-subheading: 145%;
+    --letter-spacing-subheading: 16%;
+     --font-size-heading:56px;
+    --line-height-heading: auto;  
+    --letter-spacing-heading: 0% ;
+     --font-size-para:16px;
+    --line-height-para: 24px;  
+    --letter-spacing-para: 0% ;
+    --circle-text:16px;
+    --circle-line-height:24px;
+      --card-width:308px;
+      --card-height:444px;
+      --card-heading:24px;
+      --card-heading-line:36px;
+  }
+}

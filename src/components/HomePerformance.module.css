@@ -1,0 +1,202 @@
+/* Performance optimizations for Home component */
+
+/* Optimize animations and transitions */
+.phase1 {
+  width: 100%;
+  height: 540px;
+  position: relative;
+  background-image: url("../assets/cover.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 80px;
+  overflow: visible;
+  box-sizing: border-box;
+  gap: 40px;
+  will-change: transform; /* Optimize for animations */
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+.homeMain {
+  overflow: hidden;
+  contain: layout style paint; /* Performance optimization */
+}
+
+/* Optimize ticker animation */
+.ticker {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Optimize image loading */
+.upperImg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  will-change: opacity;
+  transform: translateZ(0);
+}
+
+/* Optimize floating buttons */
+.floatingButtons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  will-change: transform;
+}
+
+.whatsappButton,
+.scrollTopButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.whatsappButton:hover,
+.scrollTopButton:hover {
+  transform: scale(1.1) translateZ(0);
+}
+
+.whatsappButton {
+  background-color: #25D366;
+  color: white;
+}
+
+.scrollTopButton {
+  background-color: #DD9233;
+  color: white;
+}
+
+/* Optimize text rendering */
+.textArea h1,
+.textArea p,
+.phase2HeadText h1,
+.phase2HeadText h2 {
+  text-rendering: optimizeSpeed;
+  font-display: swap;
+}
+
+/* Optimize button interactions */
+.textArea_button {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  will-change: transform;
+}
+
+.buttonWrapper1,
+.specialMobileFont {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optimize phase transitions */
+.phase2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.phase2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optimize section layouts */
+.mainArea {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  contain: layout;
+}
+
+.sec2Andsec3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  contain: layout;
+}
+
+/* Responsive optimizations */
+@media (max-width: 768px) {
+  .phase1 {
+    padding: 40px 20px;
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .sec2Andsec3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .floatingButtons {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .whatsappButton,
+  .scrollTopButton {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ticker {
+    animation-duration: 15s; /* Faster on mobile */
+  }
+  
+  .textArea_button {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    animation: none;
+  }
+  
+  .phase2 {
+    transition: none;
+  }
+  
+  .whatsappButton:hover,
+  .scrollTopButton:hover {
+    transform: none;
+  }
+}
+
+/* Optimize for high DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .upperImg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}

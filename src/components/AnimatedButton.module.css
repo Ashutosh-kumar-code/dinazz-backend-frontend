@@ -1,0 +1,103 @@
+.button {
+  background-color: rgb(222, 148, 51);
+  width: 293px;
+  height: 56px;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 24px;
+  border-radius: 50px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  border: 2px solid transparent;
+}
+.book{
+  text-align: center;
+  white-space: nowrap;
+  font-size: 18px;
+  line-height: 32px;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 600;
+  /* background-color: antiquewhite; */
+  
+}
+
+.container{
+
+}
+
+.button:hover {
+  background-color: rgb(200, 130, 40);
+}
+
+.arrowBox {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  /* flex-shrink: 0; */
+}
+
+.arrow {
+  position: absolute;
+  left: 0;
+  fill: currentColor;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+   
+}
+
+/* First arrow */
+.arrow:first-child {
+  transform: translate(0, 0);
+}
+
+/* Second arrow */
+.arrow:last-child {
+  transform: translate(-10px, 20px);
+  opacity: 0;
+}
+
+/* Hover animation */
+.button:hover .arrow:first-child {
+  transform: translate(10px, -20px);
+  opacity: 0;
+}
+
+.button:hover .arrow:last-child {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+@media screen and (min-width: 250px) and (max-width: 786px) {
+  .button {
+    padding-left: 30px;
+    padding-right: 25px;
+    width: 213px ;
+  height: 48px;
+  }
+  .book{
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-family: "Instrument Sans", sans-serif;
+  width: 132px !important;
+  /* height: 20px !important; */
+  
+}
+
+}
+
+@media screen and (min-width: 786px) and (max-width: 1024px) {
+  .button {
+    padding-left: 40px;
+    padding-right: 30px;
+  }
+}

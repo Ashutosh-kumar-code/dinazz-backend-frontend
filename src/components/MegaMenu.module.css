@@ -1,0 +1,97 @@
+.megaMenuWrapper {
+  position: absolute;
+  top: 80px;
+  left: 0;
+
+  /* YAHAN CHANGE KAREIN */
+  width: 100%; /* 100vw ko 100% kar dein */
+  box-sizing: border-box; /* Ye padding ko width ke andar rakhta hai */
+
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-top: 1px solid #f0f0f0;
+  z-index: 999;
+  padding: 50px 10%;
+  animation: fadeIn 0.3s ease-out;
+
+  /* Extra Safety: Agar ab bhi bahar jaye toh ye add karein */
+  overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.megaContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.columnTitle {
+  font-size: 19px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.diagonalArrow {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.list li a:hover {
+  color: rgb(21, 144, 153);
+}
+
+.icon {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* .verticalDivider {
+        position: absolute;
+        left: -25px;
+        top: 0;
+        height: 100%;
+        width: 1px;
+        background-color: #eee;
+    } */
+
+@media screen and (max-width: 1024px) {
+  .megaMenuWrapper {
+    display: none;
+  }
+}
