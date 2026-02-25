@@ -67,7 +67,7 @@ const ConsultationForm = () => {
   const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
 
   try {
-    const response = await fetch(`http://localhost:5000/send-booking`, {
+    const response = await fetch(`/send-booking`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
